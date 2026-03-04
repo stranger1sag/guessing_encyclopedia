@@ -11,7 +11,7 @@ func get_chinese_fact():
 	var file = FileAccess.open("res://text.json",FileAccess.READ)
 	var list:Array = JSON.parse_string(file.get_as_text())["text"]
 	var theme = list[randi()%list.size()]
-	var url = "https://cn.apihz.cn/api/zici/baikebaidu.php?id="+id+"&key="+key+"&words="+theme
+	var url = "http://101.35.2.25/api/zici/baikebaidu.php?id="+id+"&key="+key+"&words="+theme
 	add_child(http)
 	http.request_completed.connect(_on_fact_received.bind(theme))
 	http.request(url)

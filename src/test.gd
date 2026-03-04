@@ -1,12 +1,12 @@
 extends Node
 
-var array = ["创新驱动"]
+var array = []
 var result = []
 var list 
 func get_chinese_fact():
 	for i in array:
 		var http = HTTPRequest.new()
-		var url = "https://cn.apihz.cn/api/zici/baikebaidu.php?id=10009364&key=d5b0d4b0e78b2a1e1ae07a7617285216&words="+i
+		var url = "http://101.35.2.25/api/zici/baikebaidu.php?id=10009364&key=d5b0d4b0e78b2a1e1ae07a7617285216&words="+i
 		add_child(http)
 		http.request_completed.connect(_on_fact_received.bind(i))
 		http.request(url)
