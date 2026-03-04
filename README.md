@@ -75,9 +75,8 @@
 guess-word/
 ├── assets/          # 游戏资源（字体、音效等）
 ├── scenes/          # 场景文件
-├── scripts/         # GDScript代码
-├── data/            # 数据文件
-│   └── text.json   # 词库数据
+├── src/         # GDScript代码
+├── text.json   # 词库数据
 └── project.godot    # 项目配置文件
 ```
 
