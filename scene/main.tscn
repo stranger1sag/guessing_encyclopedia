@@ -1,0 +1,191 @@
+[gd_scene load_steps=11 format=3 uid="uid://2jutbx0733sp"]
+
+[ext_resource type="Script" path="res://src/text_manager.gd" id="1_3calh"]
+[ext_resource type="Script" path="res://src/warn.gd" id="2_uega5"]
+[ext_resource type="Script" path="res://src/wiki.gd" id="2_yv20m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be7um"]
+bg_color = Color(0.932519, 0.889658, 0.787181, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvcy3"]
+bg_color = Color(0.377147, 0.577477, 1, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_nhmj4"]
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mj7l"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivi4d"]
+bg_color = Color(0, 0.643137, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="InputEventKey" id="InputEventKey_xygrd"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_w4rub"]
+events = [SubResource("InputEventKey_xygrd")]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_be7um")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvcy3")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "猜词-百科"
+label_settings = SubResource("LabelSettings_nhmj4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -79.0
+offset_right = -81.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1mj7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1mj7l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1mj7l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1mj7l")
+text = "随机百科"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+placeholder_text = "只输入一个字
+"
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.455817, 0.455817, 0.455817, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ivi4d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ivi4d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ivi4d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ivi4d")
+disabled = true
+shortcut = SubResource("Shortcut_w4rub")
+text = "猜"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 5
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer/MarginContainer2/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+columns = 14
+
+[node name="TextManager" type="Node" parent="." node_paths=PackedStringArray("Grid_Cell", "messageManager")]
+script = ExtResource("1_3calh")
+Grid_Cell = NodePath("../Panel/VBoxContainer/MarginContainer2/ScrollContainer/GridContainer")
+messageManager = NodePath("../CanvasLayer/MessageManager")
+
+[node name="Wiki" type="Node" parent="." node_paths=PackedStringArray("messageManager", "textManager")]
+script = ExtResource("2_yv20m")
+messageManager = NodePath("../CanvasLayer/MessageManager")
+textManager = NodePath("../TextManager")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MessageManager" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 181.0
+grow_horizontal = 2
+size_flags_vertical = 0
+alignment = 2
+script = ExtResource("2_uega5")
+
+[connection signal="pressed" from="Panel/VBoxContainer/Panel/Button" to="Wiki" method="_on_button_pressed"]
+[connection signal="text_changed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/TextEdit" to="TextManager" method="_on_text_edit_text_changed"]
+[connection signal="text_set" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/TextEdit" to="TextManager" method="_on_text_edit_text_set"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/HBoxContainer/Button" to="TextManager" method="_on_button_pressed"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lm17bmi7vr7"]
+
+[ext_resource type="Script" path="res://src/message.gd" id="1_535q4"]
+[ext_resource type="Texture2D" uid="uid://dbp3vqk8yi2it" path="res://assets/warn.png" id="2_exocl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlhlj"]
+bg_color = Color(0.961814, 0.961814, 0.961814, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="message" type="Panel"]
+custom_minimum_size = Vector2(300, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlhlj")
+script = ExtResource("1_535q4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -20.0
+offset_right = 63.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("2_exocl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -20.0
+offset_right = -28.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "已经输入过该字体"
+horizontal_alignment = 1
+vertical_alignment = 1
