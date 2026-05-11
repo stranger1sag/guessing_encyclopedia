@@ -7,7 +7,7 @@ class_name TextManager
 @onready var button: Button = $"../Panel/VBoxContainer/MarginContainer/HBoxContainer/Button"
 var WordList:Array[String]
 var theme:String
-var is_win = true
+var is_win = false
 
 func loadtext(guss_data: GussData):
 	for i in Grid_Cell.get_children():
@@ -56,6 +56,7 @@ func _on_button_pressed() -> void:
 	text_edit.clear()
 	if word in WordList:
 		messageManager.create_warn("你已经猜过这个字")
+		return
 	WordList.append(word)
 	var is_false = true
 	for cell:Cell in Grid_Cell.get_children():
