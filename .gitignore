@@ -1,3 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+
+# Build artifacts
+android/
+ios/
+linux/
+macos/
+windows/
+web/
+export_presets.cfg
+
+# General
+*.import
+*.log
+*.tmp
